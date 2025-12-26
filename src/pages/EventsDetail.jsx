@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import eventsData from '../data/eventsData.json';
 import './EventsDetail.css';
@@ -5,6 +6,7 @@ import './EventsDetail.css';
 function EventsDetail() {
   const { eventId } = useParams();
   const navigate = useNavigate();
+  const [showZoomInstructions, setShowZoomInstructions] = useState(false);
   
   // Find the event by ID
   const event = eventsData.events.find(e => e.id === eventId);
@@ -114,14 +116,75 @@ function EventsDetail() {
         {/* Action Buttons */}
         <section className="event-actions-section">
           {!isPastEvent && event.isVirtual && event.meetingLink && (
-            <a 
-              href={event.meetingLink}
-              className="primary-action-btn"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Join on Zoom
-            </a>
+            <>
+              {/* Zoom Instructions Toggle */}
+              <button 
+                onClick={() => setShowZoomInstructions(!showZoomInstructions)}
+                className="instructions-toggle"
+                aria-expanded={showZoomInstructions}
+              >
+                {showZoomInstructions ? '▼' : '▶'} How to Join This Zoom Meeting
+              </button>
+
+              {/* Expandable Instructions */}
+              {showZoomInstructions && (
+                <div className="zoom-instructions">
+                  <h3>Step-by-Step: How to Join</h3>
+                  
+                  <ol className="instruction-steps">
+                    <li>
+                      <strong>Step 1:</strong> Click the green "Join on Zoom" button below
+                    </li>
+                    <li>
+                      <strong>Step 2:</strong> A new window will open taking you to Zoom
+                    </li>
+                    <li>
+                      <strong>Step 3:</strong> If you have Zoom installed, it will open automatically
+                    </li>
+                    <li>
+                      <strong>Step 4:</strong> If you don't have Zoom, click "Join from Your Browser"
+                    </li>
+                    <li>
+                      <strong>Step 5:</strong> Enter your name when asked
+                    </li>
+                    <li>
+                      <strong>Step 6:</strong> You're in! You can turn on your camera and microphone when ready
+                    </li>
+                  </ol>
+
+                  <div className="help-box">
+                    <p>
+                      <strong>Need Help?</strong><br/>
+                      Having trouble joining? Call us at <a href="tel:510-865-4953">510-865-4953</a> and we'll walk you through it.
+                    </p>
+                  </div>
+                </div>
+              )}
+
+              {/* Big Join Button */}
+              <a 
+                href={event.meetingLink}
+                className="primary-action-btn"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Join event on Zoom - Opens in new window"
+              >
+                <span className="btn-icon">🎥</span>
+                Join on Zoom
+                <span className="btn-subtext">Opens in a new window</span>
+              </a>
+
+              {/* What to Expect */}
+              <div className="what-to-expect">
+                <h4>What to Expect:</h4>
+                <ul>
+                  <li>✓ You can join from your computer, phone, or tablet</li>
+                  <li>✓ No account needed - just click and join</li>
+                  <li>✓ You can join with or without video</li>
+                  <li>✓ Staff will be there to help if you need it</li>
+                </ul>
+              </div>
+            </>
           )}
           
           {isPastEvent && (
