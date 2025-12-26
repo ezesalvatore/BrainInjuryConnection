@@ -1,6 +1,3 @@
-# Quick Setup Commands
-bash
-
 ## Install all dependencies
 npm install
 
