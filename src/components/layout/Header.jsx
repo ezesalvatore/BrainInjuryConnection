@@ -46,6 +46,7 @@ function Header() {
             <li><Link to="/">Home</Link></li>
             <li><Link to="/about">About Brain Injury</Link></li>
             <li><Link to="/events">Events</Link></li>
+            <li><Link to="/admin/events">EVENTS ADMIN</Link></li>
             <li><Link to="/directory">Directory</Link></li>
             <li><Link to="/meet-us">Meet Us</Link></li>
             <li><Link to="/faqs">FAQs</Link></li>

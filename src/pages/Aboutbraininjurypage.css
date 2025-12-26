@@ -1,0 +1,307 @@
+/* Page Banner */
+.about-banner {
+  background: linear-gradient(135deg, #7cb342 0%, #8bc34a 100%);
+  padding: 3rem 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-banner h1 {
+  color: white;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Main Content Section */
+.about-content-section {
+  padding: 3rem 0;
+  background: white;
+}
+
+.content-wrapper {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+/* Main Content Area */
+.main-content {
+  background: white;
+  padding: 0;
+}
+
+.main-content p {
+  color: #333;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  text-align: justify;
+}
+
+.main-content p:first-child {
+  margin-top: 0;
+}
+
+/* Sidebar Styling */
+.sidebar {
+  position: sticky;
+  top: 100px;
+}
+
+.sidebar-section {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.sidebar-section h4 {
+  color: #4A90E2;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 2px solid #4A90E2;
+  padding-bottom: 0.5rem;
+}
+
+.sidebar-section .section-subtitle {
+  color: #4A90E2;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.sidebar-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-section ul li {
+  margin-bottom: 0.75rem;
+  padding-left: 1rem;
+  position: relative;
+}
+
+.sidebar-section ul li::before {
+  content: "▶";
+  position: absolute;
+  left: 0;
+  color: #4A90E2;
+  font-size: 0.7rem;
+}
+
+.sidebar-section a {
+  color: #2c3e50;
+  text-decoration: none;
+  transition: color 0.3s;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.sidebar-section a:hover {
+  color: #4A90E2;
+  text-decoration: underline;
+}
+
+.sidebar-section a strong {
+  font-weight: 700;
+}
+
+/* CDC Section in Sidebar */
+.cdc-section {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e0e0e0;
+}
+
+.cdc-badge {
+  display: block;
+  max-width: 150px;
+  height: auto;
+  margin: 0 auto 1rem;
+  border-radius: 4px;
+}
+
+.cdc-section p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 0.75rem;
+}
+
+.cdc-section ul {
+  margin-top: 0.5rem;
+}
+
+/* Resource Items */
+.resource-item {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.resource-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.resource-item h6 {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.resource-item h6 a {
+  color: #2c3e50;
+  font-weight: 700;
+}
+
+.resource-item h6 a:hover {
+  color: #4A90E2;
+}
+
+.resource-item p {
+  color: #666;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  margin-bottom: 0.25rem;
+}
+
+/* Authored By Section */
+.authored-section {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 2.5rem 2rem;
+  color: white;
+  margin-top: 2rem;
+}
+
+.authored-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  font-weight: 700;
+}
+
+.authored-section p {
+  text-align: center;
+  font-size: 1rem;
+  line-height: 1.8;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.authored-section a {
+  color: white;
+  text-decoration: underline;
+}
+
+.authored-section a:hover {
+  color: #f0f0f0;
+}
+
+/* Brain Anatomy Section */
+.brain-anatomy-section {
+  background: #f8f9fa;
+  padding: 2rem;
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.brain-anatomy-section h3 {
+  color: #2c3e50;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.brain-links {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.brain-link {
+  background: #4A90E2;
+  color: white;
+  padding: 0.75rem 2rem;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s;
+  box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);
+}
+
+.brain-link:hover {
+  background: #357ABD;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(74, 144, 226, 0.4);
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+  .content-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    position: static;
+  }
+
+  .about-banner h1 {
+    font-size: 2rem;
+  }
+
+  .main-content p {
+    text-align: left;
+  }
+}
+
+@media (max-width: 640px) {
+  .about-banner {
+    padding: 2rem 1rem;
+  }
+
+  .about-banner h1 {
+    font-size: 1.5rem;
+  }
+
+  .about-content-section {
+    padding: 2rem 0;
+  }
+
+  .sidebar-section {
+    padding: 1rem;
+  }
+
+  .authored-section {
+    padding: 2rem 1rem;
+  }
+
+  .authored-section h2 {
+    font-size: 1.5rem;
+  }
+
+  .brain-anatomy-section h3 {
+    font-size: 1.25rem;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .sidebar {
+    page-break-inside: avoid;
+  }
+
+  .authored-section {
+    page-break-before: always;
+  }
+}

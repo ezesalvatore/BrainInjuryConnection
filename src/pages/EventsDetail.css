@@ -1,0 +1,342 @@
+.event-detail-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* Back Button */
+.back-button {
+  background: none;
+  border: 2px solid #3498db;
+  color: #3498db;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  transition: all 0.3s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+}
+
+.back-button:hover {
+  background: #3498db;
+  color: white;
+  transform: translateX(-4px);
+}
+
+/* Event Header */
+.event-detail-header {
+  margin-bottom: 3rem;
+}
+
+.event-badges {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.category-badge {
+  background: #3498db;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.virtual-badge {
+  background: #27ae60;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.past-badge {
+  background: #95a5a6;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.event-detail-header h1 {
+  font-size: 3rem;
+  color: #2c3e50;
+  line-height: 1.2;
+  margin: 0;
+}
+
+/* Event Detail Card */
+.event-detail-card {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+/* Info Section */
+.event-info-section {
+  padding: 3rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.event-info-section h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: white;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1.5rem;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+}
+
+.info-icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.info-content h3 {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.9;
+  margin: 0 0 0.5rem 0;
+}
+
+.info-content p {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* Description Section */
+.event-description-section {
+  padding: 3rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.event-description-section h2 {
+  font-size: 2rem;
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+}
+
+.event-description {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #555;
+}
+
+/* Actions Section */
+.event-actions-section {
+  padding: 3rem;
+  text-align: center;
+  background: #f8f9fa;
+}
+
+.primary-action-btn {
+  display: inline-block;
+  background: #27ae60;
+  color: white;
+  padding: 1.25rem 3rem;
+  border-radius: 50px;
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.3s;
+  box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3);
+}
+
+.primary-action-btn:hover {
+  background: #229954;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(39, 174, 96, 0.4);
+}
+
+.past-event-message {
+  background: #ecf0f1;
+  padding: 2rem;
+  border-radius: 12px;
+  border-left: 4px solid #95a5a6;
+}
+
+.past-event-message p {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #555;
+}
+
+.in-person-message {
+  background: #e3f2fd;
+  padding: 2rem;
+  border-radius: 12px;
+  border-left: 4px solid #3498db;
+}
+
+.in-person-message p {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #2c3e50;
+}
+
+/* Additional Info Section */
+.event-additional-info {
+  padding: 3rem;
+  background: white;
+  border-top: 1px solid #e0e0e0;
+}
+
+.event-additional-info h2 {
+  font-size: 1.8rem;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
+
+.event-additional-info p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #555;
+}
+
+.event-additional-info a {
+  color: #3498db;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.event-additional-info a:hover {
+  text-decoration: underline;
+}
+
+/* Related Events Section */
+.related-events-section {
+  margin-top: 4rem;
+  padding: 3rem;
+  background: #f8f9fa;
+  border-radius: 16px;
+}
+
+.related-events-section h2 {
+  font-size: 2rem;
+  color: #2c3e50;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.related-events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.related-event-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: all 0.3s;
+  border: 2px solid transparent;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.related-event-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  border-color: #3498db;
+}
+
+.related-category {
+  display: inline-block;
+  background: #3498db;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 15px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.related-event-card h3 {
+  font-size: 1.3rem;
+  color: #2c3e50;
+  margin: 1rem 0;
+}
+
+.related-date {
+  color: #666;
+  font-size: 1rem;
+  margin: 0;
+}
+
+.no-related-events {
+  text-align: center;
+  color: #666;
+  font-size: 1.1rem;
+  padding: 2rem;
+}
+
+/* Event Not Found */
+.event-not-found {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.event-not-found h1 {
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
+
+.event-not-found p {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .event-detail-header h1 {
+    font-size: 2rem;
+  }
+
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .event-info-section,
+  .event-description-section,
+  .event-actions-section,
+  .event-additional-info {
+    padding: 2rem 1.5rem;
+  }
+
+  .related-events-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .primary-action-btn {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+  }
+}
