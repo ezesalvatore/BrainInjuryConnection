@@ -113,4 +113,3 @@ function OnboardingQuizModal({ isOpen, onClose }) {
 
 export default OnboardingQuizModal;
 
-
