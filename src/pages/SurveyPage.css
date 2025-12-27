@@ -265,6 +265,8 @@
   text-decoration: none;
   font-weight: 600;
   transition: all 0.2s;
+  border: none;
+  cursor: pointer;
 }
 
 .primary-btn:hover {
@@ -341,4 +343,3 @@
     flex-direction: column;
   }
 }
-

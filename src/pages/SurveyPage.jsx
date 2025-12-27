@@ -101,10 +101,6 @@ function SurveyPage() {
   };
 
   const renderQuestion = (question) => {
-    const isAnswered = question.type === 'checkbox' 
-      ? (answers[question.id] || []).length > 0 
-      : !!answers[question.id];
-
     switch (question.type) {
       case 'radio':
         return (
