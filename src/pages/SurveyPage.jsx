@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { surveyPages, TOTAL_QUESTION_PAGES } from '../data/surveyQuestions';
 import { useSurveyStorage } from '../hooks/useSurveyStorage';
@@ -6,35 +6,68 @@ import SurveyProgress from '../components/survey/SurveyProgress';
 import './SurveyPage.css';
 
 function SurveyPage() {
-  const { answers, updateAnswer, clearSurvey } = useSurveyStorage();
+  const { answers, currentPage: savedPage, setCurrentPage: savePage, updateAnswer, clearSurvey } = useSurveyStorage();
   const [currentPageIndex, setCurrentPageIndex] = useState(0);
   const [isComplete, setIsComplete] = useState(false);
+  const [showResumePrompt, setShowResumePrompt] = useState(false);
+  const [validationError, setValidationError] = useState('');
+
+  useEffect(() => {
+    if (savedPage > 0 && Object.keys(answers).length > 0) {
+      setShowResumePrompt(true);
+    }
+  }, []);
 
   const currentPage = surveyPages[currentPageIndex];
   const isIntroPage = currentPage?.isIntro;
   const isLastPage = currentPageIndex === surveyPages.length - 1;
 
+  const validateCurrentPage = () => {
+    if (isIntroPage) return true;
+    
+    const requiredQuestions = currentPage.questions?.filter(q => q.required) || [];
+    for (const question of requiredQuestions) {
+      const answer = answers[question.id];
+      if (!answer || (Array.isArray(answer) && answer.length === 0)) {
+        setValidationError('Please answer all required questions before continuing.');
+        return false;
+      }
+    }
+    setValidationError('');
+    return true;
+  };
+
   const handleNext = () => {
+    if (!validateCurrentPage()) return;
+    
     if (isLastPage) {
+      savePage(0);
       setIsComplete(true);
     } else {
-      setCurrentPageIndex((prev) => prev + 1);
+      const nextIndex = currentPageIndex + 1;
+      setCurrentPageIndex(nextIndex);
+      savePage(nextIndex);
       window.scrollTo(0, 0);
     }
   };
 
   const handleBack = () => {
+    setValidationError('');
     if (currentPageIndex > 0) {
-      setCurrentPageIndex((prev) => prev - 1);
+      const prevIndex = currentPageIndex - 1;
+      setCurrentPageIndex(prevIndex);
+      savePage(prevIndex);
       window.scrollTo(0, 0);
     }
   };
 
   const handleRadioChange = (questionId, value) => {
+    setValidationError('');
     updateAnswer(questionId, value);
   };
 
   const handleCheckboxChange = (questionId, value, checked) => {
+    setValidationError('');
     const current = answers[questionId] || [];
     if (checked) {
       updateAnswer(questionId, [...current, value]);
@@ -44,6 +77,7 @@ function SurveyPage() {
   };
 
   const handleTextChange = (questionId, value) => {
+    setValidationError('');
     updateAnswer(questionId, value);
   };
 
@@ -51,16 +85,32 @@ function SurveyPage() {
     clearSurvey();
     setCurrentPageIndex(0);
     setIsComplete(false);
+    setShowResumePrompt(false);
+    setValidationError('');
     window.scrollTo(0, 0);
   };
 
+  const handleResume = () => {
+    setCurrentPageIndex(savedPage);
+    setShowResumePrompt(false);
+  };
+
+  const handleStartFresh = () => {
+    clearSurvey();
+    setShowResumePrompt(false);
+  };
+
   const renderQuestion = (question) => {
+    const isAnswered = question.type === 'checkbox' 
+      ? (answers[question.id] || []).length > 0 
+      : !!answers[question.id];
+
     switch (question.type) {
       case 'radio':
         return (
           <div className="question-options">
             {question.options.map((option) => (
-              <label key={option} className="radio-option">
+              <label key={option} className={`radio-option ${answers[question.id] === option ? 'selected' : ''}`}>
                 <input
                   type="radio"
                   name={question.id}
@@ -78,7 +128,7 @@ function SurveyPage() {
         return (
           <div className="question-options">
             {question.options.map((option) => (
-              <label key={option} className="checkbox-option">
+              <label key={option} className={`checkbox-option ${(answers[question.id] || []).includes(option) ? 'selected' : ''}`}>
                 <input
                   type="checkbox"
                   value={option}
@@ -118,6 +168,27 @@ function SurveyPage() {
     }
   };
 
+  if (showResumePrompt) {
+    return (
+      <div className="survey-page">
+        <div className="container">
+          <div className="survey-card resume-card">
+            <h2>Welcome Back!</h2>
+            <p>It looks like you have a survey in progress. Would you like to continue where you left off?</p>
+            <div className="resume-actions">
+              <button className="primary-btn" onClick={handleResume}>
+                Continue Survey
+              </button>
+              <button className="secondary-btn" onClick={handleStartFresh}>
+                Start Fresh
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   if (isComplete) {
     return (
       <div className="survey-page">
@@ -141,7 +212,6 @@ function SurveyPage() {
     <div className="survey-page">
       <div className="container">
         <div className="survey-header">
-          {/* <h1>Needs Assessment Survey</h1> */}
           {!isIntroPage && (
             <SurveyProgress
               currentPage={currentPage.pageNumber}
@@ -190,6 +260,12 @@ function SurveyPage() {
             </>
           )}
 
+          {validationError && (
+            <div className="validation-error">
+              {validationError}
+            </div>
+          )}
+
           <div className="survey-navigation">
             {currentPageIndex > 0 && (
               <button className="nav-btn back-btn" onClick={handleBack}>
@@ -207,4 +283,3 @@ function SurveyPage() {
 }
 
 export default SurveyPage;
-
