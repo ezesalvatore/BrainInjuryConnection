@@ -11,7 +11,7 @@ export const onboardingQuestions = [
   },
   {
     id: 'looking_for',
-    question: "I'm looking for...",
+    question: "I am looking for...",
     options: [
       { value: 'resources', label: 'Resources and information' },
       { value: 'support', label: 'Support groups and community' },
@@ -23,9 +23,9 @@ export const onboardingQuestions = [
     id: 'experience_level',
     question: 'My experience with brain injury:',
     options: [
-      { value: 'new', label: "I'm new to this journey" },
+      { value: 'new', label: "I am new to this journey" },
       { value: 'some', label: 'I have some experience' },
-      { value: 'experienced', label: "I've been on this journey for a while" },
+      { value: 'experienced', label: "I have been on this journey for a while" },
     ],
   },
 ];
