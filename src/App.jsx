@@ -7,6 +7,7 @@ import Aboutbraininjurypage from './pages/Aboutbraininjurypage';
 import Events from './pages/Events';
 import EventsDetail from './pages/EventsDetail';
 import EventsAdmin from './pages/EventsAdmin';
+import SurveyPage from './pages/SurveyPage';
 import './App.css';
 
 function App() {
@@ -28,6 +29,9 @@ function App() {
             
             {/* Admin Routes */}
             <Route path="/admin/events" element={<EventsAdmin />} />
+            
+            {/* Survey Routes */}
+            <Route path="/surveys" element={<SurveyPage />} />
           </Routes>
         </main>
         <Footer />
