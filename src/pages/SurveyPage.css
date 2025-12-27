@@ -117,6 +117,22 @@
   background: #f8fbff;
 }
 
+.radio-option.selected,
+.checkbox-option.selected {
+  border-color: #4A90E2;
+  background: linear-gradient(135deg, #4A90E2 0%, #5BA3F5 100%);
+}
+
+.radio-option.selected .radio-label,
+.checkbox-option.selected .checkbox-label {
+  color: white;
+}
+
+.radio-option.selected input,
+.checkbox-option.selected input {
+  accent-color: white;
+}
+
 .radio-option input,
 .checkbox-option input {
   width: 18px;
@@ -249,6 +265,8 @@
   text-decoration: none;
   font-weight: 600;
   transition: all 0.2s;
+  border: none;
+  cursor: pointer;
 }
 
 .primary-btn:hover {
@@ -273,6 +291,40 @@
   color: #4A90E2;
 }
 
+.resume-card {
+  text-align: center;
+  padding: 3rem 2rem;
+}
+
+.resume-card h2 {
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
+
+.resume-card p {
+  color: #555;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.resume-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.validation-error {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #dc2626;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  margin-top: 1.5rem;
+  text-align: center;
+  font-size: 0.95rem;
+}
+
 @media (max-width: 640px) {
   .survey-card {
     padding: 1.5rem;
@@ -291,4 +343,3 @@
     flex-direction: column;
   }
 }
-
