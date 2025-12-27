@@ -1,9 +1,13 @@
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import OnboardingQuizModal from '../components/survey/OnboardingQuizModal';
 import './HomePage.css';
 
 function HomePage() {
+  const [showOnboarding, setShowOnboarding] = useState(false);
+
   return (
     <div className="home-page">
-      {/* Hero Section */}
       <section className="hero-banner">
         <div className="container">
           <div className="banner-content">
@@ -12,21 +16,21 @@ function HomePage() {
               <h1>Brain Injury Connection</h1>
               <h5>First time on our site?</h5>
               <p>For more information</p>
-              <button className="start-here-btn">
+              <button
+                className="start-here-btn"
+                onClick={() => setShowOnboarding(true)}
+              >
                 START HERE <span className="arrow">→</span>
               </button>
             </div>
             <div className="banner-graphic">
-              {/* Puzzle pieces will go here */}
               <div className="puzzle-pieces">
-                {/* We'll add SVG puzzle pieces here */}
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Suicide Prevention Banner */}
       <section className="prevention-banner">
         <div className="container">
           <div className="prevention-content">
@@ -54,7 +58,6 @@ function HomePage() {
         </div>
       </section>
 
-      {/* Info Blocks */}
       <section className="info-blocks">
         <div className="container">
           <div className="blocks-grid">
@@ -81,7 +84,7 @@ function HomePage() {
                 If you are unable to participate in the online version, you can download 
                 the printable version.
               </p>
-              <a href="#" className="read-more">Read More →</a>
+              <Link to="/surveys" className="read-more">Read More →</Link>
             </div>
 
             <div className="info-block">
@@ -92,13 +95,12 @@ function HomePage() {
                 attend events, and access resources to help you navigate life after 
                 brain injury.
               </p>
-              <a href="#" className="read-more">Read More →</a>
+              <Link to="/events" className="read-more">Read More →</Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Newsletter Section */}
       <section className="newsletter-section">
         <div className="container">
           <div className="newsletter-content">
@@ -116,6 +118,11 @@ function HomePage() {
           </div>
         </div>
       </section>
+
+      <OnboardingQuizModal
+        isOpen={showOnboarding}
+        onClose={() => setShowOnboarding(false)}
+      />
     </div>
   );
 }
